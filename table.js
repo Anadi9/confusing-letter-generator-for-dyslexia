@@ -25,4 +25,6 @@ btnGen.addEventListener("click", (e) => {
   }
   table = table + "</tbody></table>";
   wrap.innerHTML = table;
+  document.getElementById("controls").style.display = "none";
+  document.getElementById("wrap").style.display = "block";
 });
