@@ -32,12 +32,16 @@
     );
   }
 
+  function getRandomLetter(str) {
+    var arr = str.split("");
+    var l = arr.length;
+    var i = Math.floor(Math.random() * l);
+    return arr[i];
+  }
+
   function generateRow(n) {
-    var data = ["x", "y", "z"];
-    let index = Math.floor((Math.random() * 7) / 3);
-    // console.log(index);
     var row = document.createElement("tr"),
-      text = document.createTextNode(data[index]);
+      text = document.createTextNode(getRandomLetter("xyz"));
 
     for (var i = 0; i < n; i++) {
       row.insertCell().appendChild(text.cloneNode(true));
