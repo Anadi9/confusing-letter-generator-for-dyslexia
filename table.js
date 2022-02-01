@@ -1,56 +1,28 @@
-(function (window, document, undefined) {
-  "use strict";
+function getRandomLetter(str) {
+  var arr = str.split("");
+  var l = arr.length;
+  var i = Math.floor(Math.random() * l);
+  return arr[i];
+}
 
-  var wrap = document.getElementById("wrap"),
-    setColumn = document.getElementById("column"),
-    setRow = document.getElementById("row"),
-    btnGen = document.getElementById("btnGen"),
-    btnCopy = document.getElementById("btnCopy");
+var wrap = document.getElementById("wrap");
+var setColumn = document.getElementById("column");
+var strNode = document.getElementById("str");
+var setRow = document.getElementById("row");
+var btnGen = document.getElementById("btnGen");
 
-  btnGen.addEventListener("click", generateTable);
-  btnCopy.addEventListener("click", copyTo);
-
-  function generateTable(e) {
-    var newTable = document.createElement("table"),
-      tBody = newTable.createTBody(),
-      nOfColumns = parseInt(setColumn.value, 10),
-      nOfRows = parseInt(setRow.value, 10),
-      row = generateRow(nOfColumns);
-
-    newTable
-      .createCaption()
-      .appendChild(document.createTextNode("Generated Table"));
-
-    for (var i = 0; i < nOfRows; i++) {
-      tBody.appendChild(row.cloneNode(true));
+btnGen.addEventListener("click", (e) => {
+  var nOfColumns = parseInt(setColumn.value, 10);
+  var nOfRows = parseInt(setRow.value, 10);
+  var str = strNode.value;
+  var table = "<table><tbody>";
+  for (var i = 0; i < nOfRows; i++) {
+    table += "<tr>";
+    for (var j = 0; j < nOfColumns; j++) {
+      table = table + `<td>${getRandomLetter(str)}</td>`;
     }
-
-    (wrap.hasChildNodes() ? wrap.replaceChild : wrap.appendChild).call(
-      wrap,
-      newTable,
-      wrap.children[0]
-    );
+    table += "</tr>";
   }
-
-  function getRandomLetter(str) {
-    var arr = str.split("");
-    var l = arr.length;
-    var i = Math.floor(Math.random() * l);
-    return arr[i];
-  }
-
-  function generateRow(n) {
-    var row = document.createElement("tr"),
-      text = document.createTextNode(getRandomLetter("xyz"));
-
-    for (var i = 0; i < n; i++) {
-      row.insertCell().appendChild(text.cloneNode(true));
-    }
-
-    return row.cloneNode(true);
-  }
-
-  function copyTo(e) {
-    prompt("Copy to clipboard: Ctrl+C, Enter", wrap.innerHTML);
-  }
-})(window, window.document);
+  table = table + "</tbody></table>";
+  wrap.innerHTML = table;
+});

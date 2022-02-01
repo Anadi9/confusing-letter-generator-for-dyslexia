@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Table</title>
-    <script type="module" src="/table.js"></script>
     <link rel="stylesheet" href="/table.css" />
   </head>
 
@@ -17,10 +16,14 @@
         <input type="number" id="row" />
       </li>
       <li>
+        <label for="str">String</label>
+        <input type="text" id="str" />
+      </li>
+      <li>
         <input type="button" value="Generate" id="btnGen" />
-        <input type="button" value="Copy to Clipboard" id="btnCopy" />
       </li>
     </ul>
     <div id="wrap"></div>
+    <script type="module" src="/table.js"></script>
   </body>
 </html>
