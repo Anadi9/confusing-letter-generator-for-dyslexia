@@ -6,23 +6,20 @@
   </head>
 
   <body>
-    <ul id="controls">
-      <li>
+    <div id="controls" class="controls">
+      <div>
         <label for="column">Add a Column</label>
         <input type="number" id="column" validate />
-      </li>
-      <li>
-        <label for="row">Add a Row</label>
-        <input type="number" id="row" />
-      </li>
-      <li>
+      </div>
+      <div>
+        <label for="row">Add a Row</label> <input type="number" id="row" />
+      </div>
+      <div>
         <label for="str">String</label>
         <input type="text" id="str" />
-      </li>
-      <li>
-        <input type="button" value="Generate" id="btnGen" />
-      </li>
-    </ul>
+      </div>
+      <input class="button" type="button" value="Generate" id="btnGen" />
+    </div>
     <div id="wrap"></div>
     <script type="module" src="/table.js"></script>
   </body>

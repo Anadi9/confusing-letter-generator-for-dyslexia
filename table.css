@@ -1,14 +1,16 @@
+div {
+  margin-top: 10px;
+}
 .wrap {
   background-color: #000;
 }
-ul {
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-left: 0;
   padding-left: 0;
   width: 200px;
-}
-ul li {
-  list-style: none;
-  padding-bottom: 1em;
 }
 input[type="number"] {
   width: 70px;
@@ -24,4 +26,7 @@ td {
 }
 td {
   width: 50px;
+}
+.button {
+  margin-top: 10px;
 }
