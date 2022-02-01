@@ -35,7 +35,7 @@
   function generateRow(n) {
     var data = ["x", "y", "z"];
     let index = Math.floor((Math.random() * 7) / 3);
-    console.log(index);
+    // console.log(index);
     var row = document.createElement("tr"),
       text = document.createTextNode(data[index]);
 
